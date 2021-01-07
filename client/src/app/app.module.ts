@@ -11,6 +11,9 @@ import { GameListComponent } from './components/game-list/game-list.component';
 
 import { GamesService } from './services/games.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { FooterComponent } from './components/footer/footer.component';
     NavigationComponent,
     GameFormComponent,
     GameListComponent,
-    FooterComponent
+    FooterComponent,
+    SignInComponent,
+    SignUpComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

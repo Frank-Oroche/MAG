@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <div class="container-fluid">
             <a class="navbar-brand" routerLink="/">My Amazing Games <i class="fas fa-gamepad fa-2x"></i></a>
@@ -9,10 +9,25 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
+                        <a class="nav-link" *ngIf="usuario==false" routerLink="/welcome" routerLinkActive="active"><i class="fas fa-door-open"></i> Bienvenido</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" *ngIf="usuario==true" routerLink="/welcome" routerLinkActive="active"><i class="fas fa-home"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" routerLink="/games" routerLinkActive="active"><i class="fas fa-gamepad"></i> Juegos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/games/add" routerLinkActive="active"><i class="fas fa-plus-circle"></i> Nuevo Juego</a>
+                        <a class="nav-link" *ngIf="usuario==false" routerLink="/signin" routerLinkActive="active"><i class="fas fa-sign-in-alt"></i> Ingresar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" *ngIf="usuario==true" routerLink="/signin" routerLinkActive="active"><i class="far fa-user"></i> Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" *ngIf="usuario==false" routerLink="/signup" routerLinkActive="active"><i class="fas fa-user-plus"></i> Registrarse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="logout()" *ngIf="usuario==true" routerLink="/welcome" routerLinkActive="active"><i class="fas fa-sign-out-alt"></i> Salir</a>
                     </li>
                 </ul>
             </div>

@@ -1,14 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GameFormComponent } from './components/game-form/game-form.component';
 
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { GameFormComponent } from './components/game-form/game-form.component';
+import { SignInComponent } from  './components/sign-in/sign-in.component';
+import { SignUpComponent } from  './components/sign-up/sign-up.component';
 import { GameListComponent } from './components/game-list/game-list.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/games',
+    redirectTo: '/welcome',
     pathMatch: 'full'
+  },
+  {
+    path: 'welcome',
+    component: WelcomeComponent
   },
   {
     path: 'games',
@@ -21,6 +28,14 @@ const routes: Routes = [
   {
     path: 'games/edit/:id',
     component: GameFormComponent
+  },
+  {
+    path: 'signin',
+    component: SignInComponent
+  },
+  {
+    path: 'signup',
+    component: SignUpComponent
   }
 ];
 

@@ -1,16 +1,26 @@
-<div class="col-md-4" *ngFor="let game of games">
-    <div class="card text-center mt-4">
-        <div class="card-header bg-dark text-white d-flex justify-content-between aling-items-center">
-            {{game.title}}
-            <button class="btn btn-danger" (click)="deleteGame(game.id)">
-                <i class="far fa-trash-alt"></i>
-            </button>
+<ng-container *ngIf="games.length==0">
+        <div class="card text-center mt-4">
+            <p class="m-5">No hay juegos :(</p>
         </div>
-        <img [src]="game.image" class="card-img-top">
-        <div class="card-body">
-            <p>{{game.description}}</p>
-            <p>{{game.created_at}}</p>
-            <a [routerLink]="['/games/edit', game.id]" class="btn btn-info btn-block">Editar Juego</a>
+</ng-container>
+<ng-container *ngIf="games.length>0">
+    <div class="container-fluid mt-2">
+        <a class="btn btn-secondary" routerLink="/games/add" routerLinkActive="active"><i class="fas fa-plus-circle"></i> Nuevo Juego</a>
+    </div>
+    <div class="col-md-4" *ngFor="let game of games">
+        <div class="card text-center mt-4">
+            <div class="card-header bg-dark text-white d-flex justify-content-between aling-items-center">
+                {{game.title}}
+                <button class="btn btn-danger" (click)="deleteGame(game.id)">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+            </div>
+            <img [src]="game.image" class="card-img-top">
+            <div class="card-body">
+                <p>{{game.description}}</p>
+                <p>{{game.created_at}}</p>
+                <a [routerLink]="['/games/edit', game.id]" class="btn btn-info btn-block">Editar Juego</a>
+            </div>
         </div>
     </div>
-</div>
+</ng-container>
