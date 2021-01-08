@@ -22,7 +22,6 @@ class  GamesController {
         } else {
             res.status(404).json({text: "Game doesn't exists"});
         }
-        //res.json({text: 'This is game ' + req.params.id});
     }
 
     public async update (req: Request, res: Response): Promise<void> {

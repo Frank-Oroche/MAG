@@ -13,58 +13,58 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class GamesController {
+class UserController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const games = yield database_1.default.query('SELECT * FROM games');
-            res.json(games);
+            const users = yield database_1.default.query('SELECT * FROM Usuario');
+            res.json(users);
         });
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log(req.body);
-            yield database_1.default.query('INSERT INTO games SET ?', [req.body]);
-            res.json({ message: 'Game Saved' });
+            yield database_1.default.query('INSERT INTO Usuario SET ?', [req.body]);
+            res.json({ message: 'User Saved' });
         });
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const game = yield database_1.default.query('SELECT * FROM games WHERE id = ?', [id]);
-            if (game.length > 0) {
-                return res.json(game[0]);
+            const user = yield database_1.default.query('SELECT * FROM Usuario WHERE int_usercodigo = ?', [id]);
+            if (user.length > 0) {
+                return res.json(user[0]);
             }
             else {
-                res.status(404).json({ text: "Game doesn't exists" });
+                res.status(404).json({ text: "User doesn't exists" });
             }
         });
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const game = yield database_1.default.query('SELECT * FROM games WHERE id = ?', [id]);
-            if (game.length > 0) {
-                yield database_1.default.query('UPDATE games SET ? WHERE id = ?', [req.body, id]);
-                res.json({ message: 'The game was update' });
+            const user = yield database_1.default.query('SELECT * FROM Usuario WHERE int_usercodigo = ?', [id]);
+            if (user.length > 0) {
+                yield database_1.default.query('UPDATE Usuario SET ? WHERE int_usercodigo = ?', [req.body, id]);
+                res.json({ message: 'The User was update' });
             }
             else {
-                res.status(404).json({ text: "Game doesn't exists" });
+                res.status(404).json({ text: "User doesn't exists" });
             }
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const game = yield database_1.default.query('SELECT * FROM games WHERE id = ?', [id]);
-            if (game.length > 0) {
-                yield database_1.default.query('DELETE FROM games WHERE id = ?', [id]);
-                res.json({ message: 'The game was deleted' });
+            const user = yield database_1.default.query('SELECT * FROM Usuario WHERE int_usercodigo = ?', [id]);
+            if (user.length > 0) {
+                yield database_1.default.query('DELETE FROM Usuario WHERE int_usercodigo = ?', [id]);
+                res.json({ message: 'The User was deleted' });
             }
             else {
-                res.status(404).json({ text: "Game doesn't exists" });
+                res.status(404).json({ text: "User doesn't exists" });
             }
         });
     }
 }
-const gamesController = new GamesController();
-exports.default = gamesController;
+const userController = new UserController();
+exports.default = userController;

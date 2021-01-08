@@ -4,7 +4,7 @@ exports.indexController = void 0;
 class IndexController {
     index(req, res) {
         //res.send('hello');
-        res.json({ text: 'API esta en /api/games' });
+        res.json({ text: 'API de JUEGOS esta en /api/games, API de USUARIOS esta en /api/users' });
     }
 }
 exports.indexController = new IndexController();
