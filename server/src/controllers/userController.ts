@@ -10,7 +10,8 @@ class  UserController {
 
     public async create (req: Request, res: Response): Promise<void> {
         console.log(req.body);
-        await pool.query('INSERT INTO Usuario SET ?', [req.body]);
+        await pool.query('INSERT INTO Usuario (vch_userpaterno,vch_usermaterno,vch_usernombre,vch_userciudad,vch_userdireccion,vch_usertelefono,vch_userusuario,vch_userclave) VALUES (?,?,?,?,?,?,?,SHA(?))', [req.body.vch_userpaterno,req.body.vch_usermaterno,req.body.vch_usernombre,req.body.vch_userciudad,req.body.vch_userdireccion,req.body.vch_usertelefono,req.body.vch_userusuario,req.body.vch_userclave]);
+        
         res.json({message: 'User Saved'});
     }
 
@@ -36,7 +37,7 @@ class  UserController {
 
     public async validatePassword (req: Request, res: Response): Promise<any> {
         const { id } = req.params;
-        const user = await pool.query('SELECT * FROM Usuario WHERE vch_userclave = ?', [id]);
+        const user = await pool.query('SELECT * FROM Usuario WHERE vch_userclave = SHA(?)', [id]);
         if (user.length > 0) {
             return res.json(user[0]);
         } else {

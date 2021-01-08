@@ -1,9 +1,10 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { User } from 'src/app/models/User';
 
 import { UsersService } from '../../services/users.service';
+import { CommunicationService } from '../../services/communication.service';
 
 import Swal from 'sweetalert2';
 
@@ -13,8 +14,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-
-  //@HostBinding('class') classes = 'row';
 
   user: User = {
     int_usercodigo: 0,
@@ -28,7 +27,7 @@ export class SignInComponent implements OnInit {
     vch_userclave: '',
   };
 
-  constructor(private userService: UsersService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private userService: UsersService, private router: Router, private activatedRoute: ActivatedRoute, private communicationService: CommunicationService) { }
 
   ngOnInit(): void {
   }
@@ -74,9 +73,9 @@ export class SignInComponent implements OnInit {
         res => {
           this.userService.validatePassword(this.user.vch_userclave!).subscribe(
             res => {
-              console.log(res);
               this.user = res;
               this.aviso(`Bienvenido ${this.user.vch_usernombre}!`,'success');
+              this.communicationService.UserDefiner(this.user);
               this.router.navigate(['/profile']);
             },
             err => {

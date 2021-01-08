@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 /* Servicios */
 import { GamesService } from './services/games.service';
 import { UsersService } from './services/users.service';
+import { CommunicationService } from './services/communication.service';
 
 /* Componentes */
 import { AppComponent } from './app.component';
@@ -40,7 +41,7 @@ import { ProfileComponent } from './components/profile/profile.component';
   ],
   providers: [
     GamesService,
-    UsersService
+    UsersService,CommunicationService
   ],
   bootstrap: [AppComponent]
 })

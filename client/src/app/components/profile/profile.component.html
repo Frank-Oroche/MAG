@@ -1,1 +1,60 @@
-<p>profile works!</p>
+<div class=" col-7">
+    <div class="col-md-12 mt-4">
+        <div class="card mb-4 p-4" style="border-radius: 20px;">
+            <div class="">
+                <div class="form-group">
+                    <p>
+                        {{user.int_usercodigo}}
+                    </p>
+                    <p>
+                        {{user.vch_userpaterno}}
+                    </p>
+                    <p>
+                        {{user.vch_usermaterno}}
+                    </p>
+                    <p>
+                        {{user.vch_usernombre}}
+                    </p>
+                    <p>
+                        {{user.vch_userciudad}}
+                    </p>
+                    <p>
+                        {{user.vch_userdireccion}}
+                    </p>
+                    <p>
+                        {{user.vch_usertelefono}}
+                    </p>
+                </div>
+                <div>
+                    <hr size="2px" width="100%" noshade="noshade"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="col-md-12" *ngFor="let game of games">
+        <div class="card mb-4 p-4" style="border-radius: 20px;">
+            <div class="row mb-3">
+                <div class="col-4">
+                    <div class="card text-center mt-2">
+                        <div
+                            class="card-header bg-dark text-white d-flex justify-content-between aling-items-center">
+                            <h3>{{game.title}}</h3>
+                            <button class="btn btn-danger" (click)="deleteGame(game.id)">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </div>
+                        <img [src]="game.image" class="card-img-top">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card-body">
+                        <p>{{game.description}}</p>
+                        <p>{{game.created_at}}</p>
+                        <a [routerLink]="['/games/edit', game.id]" class="btn btn-info btn-block">Editar
+                            Juego</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>

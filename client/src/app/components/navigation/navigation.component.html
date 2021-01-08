@@ -9,25 +9,25 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" *ngIf="usuario==false" routerLink="/welcome" routerLinkActive="active"><i class="fas fa-door-open mx-2"></i> Bienvenido</a>
+                        <a class="nav-link" *ngIf="user.int_usercodigo==0" routerLink="/welcome" routerLinkActive="active"><i class="fas fa-door-open mx-2"></i> Bienvenido</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" *ngIf="usuario==true" routerLink="/welcome" routerLinkActive="active"><i class="fas fa-home mx-2"></i> Inicio</a>
+                        <a class="nav-link" *ngIf="user.int_usercodigo!=0" routerLink="/welcome" routerLinkActive="active"><i class="fas fa-home mx-2"></i> Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/games" routerLinkActive="active"><i class="fas fa-gamepad mx-2"></i> Juegos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" *ngIf="usuario==false" routerLink="/signin" routerLinkActive="active"><i class="fas fa-sign-in-alt mx-2"></i> Ingresar</a>
+                        <a class="nav-link" *ngIf="user.int_usercodigo==0" routerLink="/signin" routerLinkActive="active"><i class="fas fa-sign-in-alt mx-2"></i> Ingresar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" *ngIf="usuario==true" routerLink="/profile" routerLinkActive="active"><i class="far fa-user mx-2"></i> Perfil</a>
+                        <a class="nav-link" *ngIf="user.int_usercodigo!=0" routerLink="/profile" routerLinkActive="active"><i class="far fa-user mx-2"></i> Perfil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" *ngIf="usuario==false" routerLink="/signup" routerLinkActive="active"><i class="fas fa-user-plus mx-2"></i> Registrarse</a>
+                        <a class="nav-link" *ngIf="user.int_usercodigo==0" routerLink="/signup" routerLinkActive="active"><i class="fas fa-user-plus mx-2"></i> Registrarse</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" (click)="logout()" *ngIf="usuario==true" routerLink="/welcome" routerLinkActive="active"><i class="fas fa-sign-out-alt mx-2"></i> Salir</a>
+                        <a class="nav-link" (click)="logout()" *ngIf="user.int_usercodigo!=0" routerLink="/welcome" routerLinkActive="active"><i class="fas fa-sign-out-alt mx-2"></i> Salir</a>
                     </li>
                 </ul>
             </div>

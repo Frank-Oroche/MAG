@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
+import { CommunicationService } from '../../services/communication.service';
+
+import { User } from 'src/app/models/User';
+
 import Swal from 'sweetalert2';
 
 @Component({
@@ -8,13 +13,45 @@ import Swal from 'sweetalert2';
 })
 export class NavigationComponent implements OnInit {
 
-   usuario : boolean;
+  // usr : boolean = false;
 
-  constructor() { 
-    this.usuario = false;
+  user: User = {
+    int_usercodigo: 0,
+    vch_userpaterno: '',
+    vch_usermaterno: '',
+    vch_usernombre: '',
+    vch_userciudad: '',
+    vch_userdireccion: '',
+    vch_usertelefono: '',
+    vch_userusuario: '',
+    vch_userclave: '',
+  };
+
+  userlogout: User = {
+    int_usercodigo: 0,
+    vch_userpaterno: '',
+    vch_usermaterno: '',
+    vch_usernombre: '',
+    vch_userciudad: '',
+    vch_userdireccion: '',
+    vch_usertelefono: '',
+    vch_userusuario: '',
+    vch_userclave: '',
+  };
+
+  constructor(private communicationService: CommunicationService) { 
+    // if (communicationService.user.int_usercodigo != 0) {
+    //   this.usuario = true;
+    // } else {
+    //   this.usuario = false;
+    // }
+    this.user = this.communicationService.user;
+    console.log(this.user);
   }
 
   ngOnInit(): void {
+    // this.user = this.communicationService.user;
+    // console.log(this.user);
   }
 
   logout() {
@@ -33,7 +70,7 @@ export class NavigationComponent implements OnInit {
       icon: 'success',
       title: 'Hasta luego, te esperamos! <i class="far fa-smile-wink"> </i>'
     })
-    this.usuario = false;
+    this.communicationService.UserDefiner(this.userlogout);
   }
 
 }
