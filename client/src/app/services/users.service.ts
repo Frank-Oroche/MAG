@@ -18,20 +18,24 @@ export class UsersService {
     return this.http.get(`${this.API_URI}/users`);
   }
 
-  getUser(id: string) {
-    return this.http.get(`${this.API_URI}/users/${id}`);
-  }
+  // getUser(id: string) {
+  //   return this.http.get(`${this.API_URI}/users/${id}`);
+  // }
 
-  saveUser(game: User) {
-    return this.http.post(`${this.API_URI}/users`, game);
+  saveUser(user: User) {
+    return this.http.post(`${this.API_URI}/users`, user);
   }
 
   daleteUser(id: string) {
     return this.http.delete(`${this.API_URI}/users/${id}`);
   }
 
-  updateUser(id: string|number, updatedGame: User): Observable<User> {
-    return this.http.put(`${this.API_URI}/users/${id}`, updatedGame);
+  updateUser(id: string|number, updatedUser: User): Observable<User> {
+    return this.http.put(`${this.API_URI}/users/${id}`, updatedUser);
+  }
+
+  validateUser(id: string) {
+    return this.http.get(`${this.API_URI}/users/${id}`);
   }
 
 }
