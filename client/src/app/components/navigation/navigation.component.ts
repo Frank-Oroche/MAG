@@ -11,7 +11,7 @@ export class NavigationComponent implements OnInit {
    usuario : boolean;
 
   constructor() { 
-    this.usuario = false;
+    this.usuario = true;
   }
 
   ngOnInit(): void {

@@ -6,6 +6,8 @@ import { GameFormComponent } from './components/game-form/game-form.component';
 import { SignInComponent } from  './components/sign-in/sign-in.component';
 import { SignUpComponent } from  './components/sign-up/sign-up.component';
 import { GameListComponent } from './components/game-list/game-list.component';
+import { ProfileComponent } from './components/profile/profile.component';
+
 
 const routes: Routes = [
   {
@@ -36,6 +38,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignUpComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
   }
 ];
 

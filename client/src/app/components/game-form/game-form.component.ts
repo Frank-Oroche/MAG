@@ -16,6 +16,7 @@ export class GameFormComponent implements OnInit {
   @HostBinding('class') classes = 'row';
 
   game: Game = {
+    int_usercodigo: 0,
     id: 0,
     title: '',
     description: '',
@@ -58,6 +59,7 @@ export class GameFormComponent implements OnInit {
     if (this.validarCampos()) {
       delete this.game.id;
       delete this.game.created_at;
+      this.game.int_usercodigo=1;
 
       this.gamesService.saveGame(this.game).subscribe(
         res => {
