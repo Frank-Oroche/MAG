@@ -1,15 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
+
+/* Servicios */
+import { GamesService } from './services/games.service';
+import { UsersService } from './services/users.service';
+
+/* Componentes */
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { GameFormComponent } from './components/game-form/game-form.component';
 import { GameListComponent } from './components/game-list/game-list.component';
-
-import { GamesService } from './services/games.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -35,7 +39,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     FormsModule
   ],
   providers: [
-    GamesService
+    GamesService,
+    UsersService
   ],
   bootstrap: [AppComponent]
 })

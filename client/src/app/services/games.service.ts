@@ -32,6 +32,6 @@ export class GamesService {
 
   updateGame(id: string|number, updatedGame: Game): Observable<Game> {
     return this.http.put(`${this.API_URI}/games/${id}`, updatedGame);
-    
   }
+  
 }
