@@ -34,6 +34,16 @@ class  UserController {
         }
     }
 
+    public async validatePassword (req: Request, res: Response): Promise<any> {
+        const { id } = req.params;
+        const user = await pool.query('SELECT * FROM Usuario WHERE vch_userclave = ?', [id]);
+        if (user.length > 0) {
+            return res.json(user[0]);
+        } else {
+            res.status(404).json({text: "User doesn't exists"});
+        }
+    }
+
     public async update (req: Request, res: Response): Promise<void> {
         const { id } = req.params;
         const user = await pool.query('SELECT * FROM Usuario WHERE int_usercodigo = ?', [id]);

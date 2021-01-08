@@ -51,6 +51,18 @@ class UserController {
             }
         });
     }
+    validatePassword(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const user = yield database_1.default.query('SELECT * FROM Usuario WHERE vch_userclave = ?', [id]);
+            if (user.length > 0) {
+                return res.json(user[0]);
+            }
+            else {
+                res.status(404).json({ text: "User doesn't exists" });
+            }
+        });
+    }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;

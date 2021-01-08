@@ -15,6 +15,7 @@ class UserRoutes {
         this.router.post('/', userController_1.default.create);
         // this.router.get('/:id', userController.getOne);
         this.router.get('/:id', userController_1.default.validateUser);
+        this.router.get('/validation/:id', userController_1.default.validatePassword);
         this.router.put('/:id', userController_1.default.update);
         this.router.delete('/:id', userController_1.default.delete);
     }

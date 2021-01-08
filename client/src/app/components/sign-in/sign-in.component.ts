@@ -25,7 +25,7 @@ export class SignInComponent implements OnInit {
     vch_userdireccion: '',
     vch_usertelefono: '',
     vch_userusuario: '',
-	  vch_userclave: '',
+    vch_userclave: '',
   };
 
   constructor(private userService: UsersService, private router: Router, private activatedRoute: ActivatedRoute) { }
@@ -33,13 +33,35 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  mensaje(titulo: string, msj: string, icono: any) {
+    Swal.fire(
+      titulo,
+      msj,
+      icono
+    )
+  }
+
+  aviso(titulo: string, icono: any) {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 1800,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    Toast.fire({
+      icon: icono,
+      title: titulo
+    })
+  }
+
   validarCampos() {
     if (this.user.vch_userusuario == '' || this.user.vch_userclave == '') {
-      Swal.fire(
-        'Campos Incompletos!',
-        'No puede iniciar sesion sin ingresar los campos.',
-        'warning'
-      )
+      this.mensaje('Campos Incompletos!', 'No puede iniciar sesion sin ingresar los campos.', 'warning');
       return false;
     } else {
       return true;
@@ -50,26 +72,23 @@ export class SignInComponent implements OnInit {
     if (this.validarCampos()) {
       this.userService.validateUser(this.user.vch_userusuario!).subscribe(
         res => {
-          console.log(res);
-          this.user = res;
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 1500,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
+          this.userService.validatePassword(this.user.vch_userclave!).subscribe(
+            res => {
+              console.log(res);
+              this.user = res;
+              this.aviso(`Bienvenido ${this.user.vch_usernombre}!`,'success');
+              this.router.navigate(['/profile']);
+            },
+            err => {
+              this.aviso(`Contraseña Incorrecta!`,'error');
+              console.error(err);
             }
-          })
-          Toast.fire({
-            icon: 'success',
-            title: `Bienvenido ${this.user.vch_usernombre}!`
-          })
-          this.router.navigate(['/profile']);
+          );
         },
-        err => console.error(err)
+        err => {
+          this.aviso(`Usuario Incorrecto!`,'error');
+          console.error(err);
+        }
       );
     }
   }

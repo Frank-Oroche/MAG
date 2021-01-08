@@ -38,4 +38,8 @@ export class UsersService {
     return this.http.get(`${this.API_URI}/users/${id}`);
   }
 
+  validatePassword(id: string) {
+    return this.http.get(`${this.API_URI}/users/validation/${id}`);
+  }
+
 }
