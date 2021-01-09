@@ -6,6 +6,8 @@ import { User } from '../models/User';
 })
 export class CommunicationService {
 
+  usr: boolean = false;
+
   user: User = {
     int_usercodigo: 0,
     vch_userpaterno: '',
@@ -23,6 +25,7 @@ export class CommunicationService {
   public UserDefiner(usuario : User) {
     console.log('Se esta definiendo un Usuario');
     this.user = usuario;
+    this.usr = true;
     console.log(this.user);
   }
 

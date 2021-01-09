@@ -69,6 +69,7 @@ export class SignInComponent implements OnInit {
 
   login() {
     if (this.validarCampos()) {
+      delete this.user.int_usercodigo;
       this.userService.validateUser(this.user.vch_userusuario!).subscribe(
         res => {
           this.userService.validatePassword(this.user.vch_userclave!).subscribe(

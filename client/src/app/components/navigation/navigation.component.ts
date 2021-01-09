@@ -40,7 +40,7 @@ export class NavigationComponent implements OnInit {
   };
 
   constructor(private communicationService: CommunicationService) { 
-    this.usr = true;
+    this.usr = this.communicationService.usr;
   }
 
   ngOnInit(): void {
@@ -64,7 +64,7 @@ export class NavigationComponent implements OnInit {
       title: 'Hasta luego, te esperamos! <i class="far fa-smile-wink"> </i>'
     })
     this.usr = false;
-    this.communicationService.UserDefiner(this.userlogout);
+    this.communicationService.usr = false;
   }
 
 }
