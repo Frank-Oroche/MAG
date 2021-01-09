@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class NavigationComponent implements OnInit {
 
-  // usr : boolean = false;
+  usr: boolean;
 
   user: User = {
     int_usercodigo: 0,
@@ -40,18 +40,11 @@ export class NavigationComponent implements OnInit {
   };
 
   constructor(private communicationService: CommunicationService) { 
-    // if (communicationService.user.int_usercodigo != 0) {
-    //   this.usuario = true;
-    // } else {
-    //   this.usuario = false;
-    // }
-    this.user = this.communicationService.user;
-    console.log(this.user);
+    this.usr = true;
   }
 
   ngOnInit(): void {
-    // this.user = this.communicationService.user;
-    // console.log(this.user);
+    
   }
 
   logout() {
@@ -70,6 +63,7 @@ export class NavigationComponent implements OnInit {
       icon: 'success',
       title: 'Hasta luego, te esperamos! <i class="far fa-smile-wink"> </i>'
     })
+    this.usr = false;
     this.communicationService.UserDefiner(this.userlogout);
   }
 

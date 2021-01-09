@@ -3,8 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { User } from 'src/app/models/User';
 
-import { UsersService } from '../../services/users.service';
 import { CommunicationService } from '../../services/communication.service';
+import { UsersService } from '../../services/users.service';
 
 import Swal from 'sweetalert2';
 
@@ -74,18 +74,18 @@ export class SignInComponent implements OnInit {
           this.userService.validatePassword(this.user.vch_userclave!).subscribe(
             res => {
               this.user = res;
-              this.aviso(`Bienvenido ${this.user.vch_usernombre}!`,'success');
+              this.aviso(`Bienvenido ${this.user.vch_usernombre}!`, 'success');
               this.communicationService.UserDefiner(this.user);
-              this.router.navigate(['/profile']);
+              this.router.navigate(['/games']);
             },
             err => {
-              this.aviso(`Contraseña Incorrecta!`,'error');
+              this.aviso(`Contraseña Incorrecta!`, 'error');
               console.error(err);
             }
           );
         },
         err => {
-          this.aviso(`Usuario Incorrecto!`,'error');
+          this.aviso(`Usuario Incorrecto!`, 'error');
           console.error(err);
         }
       );

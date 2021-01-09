@@ -1,8 +1,11 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { Game } from 'src/app/models/Games';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { Game } from 'src/app/models/Games';
+import { User } from 'src/app/models/User';
+
 import { GamesService } from '../../services/games.service';
+import { CommunicationService } from '../../services/communication.service';
 
 import Swal from 'sweetalert2';
 
@@ -15,6 +18,18 @@ export class GameFormComponent implements OnInit {
 
   @HostBinding('class') classes = 'row';
 
+  user: User = {
+    int_usercodigo: 0,
+    vch_userpaterno: '',
+    vch_usermaterno: '',
+    vch_usernombre: '',
+    vch_userciudad: '',
+    vch_userdireccion: '',
+    vch_usertelefono: '',
+    vch_userusuario: '',
+    vch_userclave: '',
+  };
+
   game: Game = {
     int_usercodigo: 0,
     id: 0,
@@ -26,9 +41,11 @@ export class GameFormComponent implements OnInit {
 
   edit: boolean = false;
 
-  constructor(private gamesService: GamesService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private gamesService: GamesService, private router: Router, private activatedRoute: ActivatedRoute, private communicationService: CommunicationService) { }
 
   ngOnInit(): void {
+    this.user = this.communicationService.user;
+    this.game.int_usercodigo=this.user.int_usercodigo;
     const params = this.activatedRoute.snapshot.params;
     if (params.id) {
       this.gamesService.getGame(params.id).subscribe(
@@ -59,7 +76,6 @@ export class GameFormComponent implements OnInit {
     if (this.validarCampos()) {
       delete this.game.id;
       delete this.game.created_at;
-      this.game.int_usercodigo=1;
 
       this.gamesService.saveGame(this.game).subscribe(
         res => {

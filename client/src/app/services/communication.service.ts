@@ -25,4 +25,5 @@ export class CommunicationService {
     this.user = usuario;
     console.log(this.user);
   }
+
 }

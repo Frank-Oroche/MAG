@@ -1,6 +1,9 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 
+import { User } from 'src/app/models/User';
+
 import { GamesService } from '../../services/games.service';
+import { CommunicationService } from '../../services/communication.service';
 
 import Swal from 'sweetalert2';
 
@@ -15,14 +18,27 @@ export class GameListComponent implements OnInit {
 
   games: any = [];
 
-  constructor(private gamesService: GamesService) { }
+  user: User = {
+    int_usercodigo: 0,
+    vch_userpaterno: '',
+    vch_usermaterno: '',
+    vch_usernombre: '',
+    vch_userciudad: '',
+    vch_userdireccion: '',
+    vch_usertelefono: '',
+    vch_userusuario: '',
+    vch_userclave: '',
+  };
+
+  constructor(private gamesService: GamesService, private communicationService: CommunicationService) { }
 
   ngOnInit(): void {
+    this.user = this.communicationService.user;
     this.getGames();
   }
 
   getGames() {
-    this.gamesService.getGames().subscribe(
+    this.gamesService.getMyGames(this.user.int_usercodigo!).subscribe(
       res => {
         this.games = res;
       },

@@ -20,6 +20,22 @@ class GamesController {
             res.json(games);
         });
     }
+    // public async listMyGames (req: Request, res: Response) {
+    //     const games = await pool.query('SELECT * FROM games WHERE int_usercodigo = ?;');
+    //     res.json(games);
+    // }
+    listMyGames(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const games = yield database_1.default.query('SELECT * FROM games WHERE int_usercodigo = ?', [id]);
+            res.json(games);
+            // if (games.length > 0) {
+            //     return res.json(games);
+            // } else {
+            //     res.status(404).json({text: "Game doesn't exists"});
+            // }
+        });
+    }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log(req.body);
