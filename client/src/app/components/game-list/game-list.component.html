@@ -44,19 +44,7 @@
         </div>
         <cdk-virtual-scroll-viewport itemSize="50" id="viewport-posts" class="viewport col-7">
             <div class=" ">
-                <div class="col-md-12 mt-4">
-                    <div class="card mb-4 p-4" style="border-radius: 20px;">
-                        <div class="">
-                            <div class="form-group">
-                                <input type="text" class="form-control" style="background: #7e7e7e; border-radius: 25px;"
-                                    placeholder="¿En que videojuego piensas?" autofocus>
-                            </div>
-                            <div>
-                                <hr size="2px" width="100%" noshade="noshade"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <app-post-bar></app-post-bar>
                 <div class="col-md-12" *ngFor="let game of games">
                     <div class="card mb-4 p-4" style="border-radius: 20px;">
                         <div class="row mb-3">
