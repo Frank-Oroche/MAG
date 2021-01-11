@@ -7,13 +7,13 @@
         <h3 class="text-white mt-5 mx-5">No hay juegos :(</h3>
         <p class="m-4">Agrega un nuevo juego para comenzar :D</p>
     </div>
-    <div class="container mt-2">
+    <div class="container mt-2 mb-4">
         <a class="container btn btn-secondary" routerLink="/games/add" routerLinkActive="active"><i
                 class="fas fa-plus-circle"></i> Nuevo Juego</a>
     </div>
 </ng-container>
 <ng-container *ngIf="games.length>0">
-    <div class="row mb-3">
+    <div class="container-fluid row mb-3">
         <div class="col-2 pt-4">
             <div class="container-fluid my-4">
                 <a class="nav-link" routerLink="/profile" routerLinkActive="active"><i class="far fa-user fa-2x mr-3"></i>
@@ -42,55 +42,66 @@
                 <hr size="2px" width="90%" noshade="noshade" align="right">
             </div>
         </div>
-        <div class=" col-7">
-            <div class="col-md-12 mt-4">
-                <div class="card mb-4 p-4" style="border-radius: 20px;">
-                    <div class="">
-                        <div class="form-group">
-                            <input type="text" class="form-control" style="background: #7e7e7e; border-radius: 25px;"
-                                placeholder="¿En que videojuego piensas?" autofocus>
-                        </div>
-                        <div>
-                            <hr size="2px" width="100%" noshade="noshade"/>
+        <cdk-virtual-scroll-viewport itemSize="50" id="viewport-posts" class="viewport col-7">
+            <div class=" ">
+                <div class="col-md-12 mt-4">
+                    <div class="card mb-4 p-4" style="border-radius: 20px;">
+                        <div class="">
+                            <div class="form-group">
+                                <input type="text" class="form-control" style="background: #7e7e7e; border-radius: 25px;"
+                                    placeholder="¿En que videojuego piensas?" autofocus>
+                            </div>
+                            <div>
+                                <hr size="2px" width="100%" noshade="noshade"/>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-12" *ngFor="let game of games">
-                <div class="card mb-4 p-4" style="border-radius: 20px;">
-                    <div class="row mb-3">
-                        <div class="col-4">
-                            <div class="card text-center mt-2">
-                                <div
-                                    class="card-header bg-dark text-white d-flex justify-content-between aling-items-center">
-                                    <h3>{{game.title}}</h3>
-                                    <button class="btn btn-danger" (click)="deleteGame(game.id)">
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
+                <div class="col-md-12" *ngFor="let game of games">
+                    <div class="card mb-4 p-4" style="border-radius: 20px;">
+                        <div class="row mb-3">
+                            <div class="col-4">
+                                <div class="card text-center mt-2">
+                                    <div
+                                        class="card-header bg-dark text-white d-flex justify-content-between aling-items-center">
+                                        <h3>{{game.title}}</h3>
+                                        <button class="btn btn-danger" (click)="deleteGame(game.id)">
+                                            <i class="far fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                    <img [src]="game.image" class="card-img-top">
                                 </div>
-                                <img [src]="game.image" class="card-img-top">
                             </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card-body">
-                                <p>{{game.description}}</p>
-                                <p>{{game.created_at}}</p>
-                                <a [routerLink]="['/games/edit', game.id]" class="btn btn-info btn-block">Editar
-                                    Juego</a>
+                            <div class="col-4">
+                                <div class="card-body">
+                                    <p>{{game.description}}</p>
+                                    <p>{{game.created_at}}</p>
+                                    <a [routerLink]="['/games/edit', game.id]" class="btn btn-info btn-block">Editar
+                                        Juego</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </cdk-virtual-scroll-viewport>
         <div class="col-3 pt-4">
-            <div class="container-fluid mt-2">
-                <a class="nav-link" routerLink="/signin" routerLinkActive="active"><i class="far fa-user"></i>
-                    Perfil</a>
+            <div class="container-fluid my-4">
+                    <h6><i class="fas fa-users fa-lg mr-3"></i> Amigos que quizas conozcas</h6>
             </div>
-            <div class="container-fluid mt-2">
-                <a class="nav-link" routerLink="/games/add" routerLinkActive="active"><i class="fas fa-plus-circle"></i>
-                    Nuevo Juego</a>
+            <div>
+                <hr size="2px" width="90%" noshade="noshade" align="right">
+            </div>
+            <cdk-virtual-scroll-viewport itemSize="50" id="viewport-users" class="viewport">
+                <div class="col-md-12" *ngFor="let usuario of usuarios; first as isFirst">
+                    <div class="card mb-2 " style="border-radius: 20px;">
+                        <a class="nav-link" routerLink="/profile" routerLinkActive="active"><i class="far fa-user-circle fa-lg mr-1"></i>
+                            {{usuario.vch_usernombre}}</a>
+                    </div>
+                </div>
+            </cdk-virtual-scroll-viewport>
+            <div>
+                <hr size="2px" width="90%" noshade="noshade" align="right">
             </div>
         </div>
     </div>

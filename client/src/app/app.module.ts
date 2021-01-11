@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 /* Servicios */
 import { GamesService } from './services/games.service';
@@ -37,7 +38,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ScrollingModule
   ],
   providers: [
     GamesService,
