@@ -39,7 +39,7 @@ export class UsersService {
   }
 
   validatePassword(id: string) {
-    return this.http.get(`${this.API_URI}/users/validation/${id}`);
+    return this.http.get(`${this.API_URI}/users/login/${id}`);
   }
 
 }

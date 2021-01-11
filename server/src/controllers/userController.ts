@@ -37,6 +37,7 @@ class  UserController {
 
     public async validatePassword (req: Request, res: Response): Promise<any> {
         const { id } = req.params;
+        await pool.query('UPDATE Usuario SET boo_logsesion = true WHERE vch_userclave = SHA(?)', [id]);
         const user = await pool.query('SELECT * FROM Usuario WHERE vch_userclave = SHA(?)', [id]);
         if (user.length > 0) {
             return res.json(user[0]);

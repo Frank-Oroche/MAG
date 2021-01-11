@@ -25,6 +25,7 @@ export class SignUpComponent implements OnInit {
     vch_usertelefono: '',
     vch_userusuario: '',
     vch_userclave: '',
+    boo_logsesion: false
   };
 
   constructor(private userService: UsersService, private router: Router, private activatedRoute: ActivatedRoute, private communicationService: CommunicationService) { }

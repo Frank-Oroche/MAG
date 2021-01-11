@@ -14,7 +14,7 @@ class UserRoutes {
         this.router.post('/', userController.create);
         // this.router.get('/:id', userController.getOne);
         this.router.get('/:id', userController.validateUser);
-        this.router.get('/validation/:id', userController.validatePassword);
+        this.router.get('/login/:id', userController.validatePassword);
         this.router.put('/:id', userController.update);
         this.router.delete('/:id', userController.delete);
     }

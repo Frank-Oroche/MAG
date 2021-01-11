@@ -8,4 +8,5 @@ export interface User {
 	vch_usertelefono?: string;
     vch_userusuario?: string;
 	vch_userclave?: string;
+	boo_logsesion?: boolean;
 }

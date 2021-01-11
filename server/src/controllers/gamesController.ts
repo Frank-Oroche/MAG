@@ -8,19 +8,10 @@ class  GamesController {
         res.json(games);
     }
 
-    // public async listMyGames (req: Request, res: Response) {
-    //     const games = await pool.query('SELECT * FROM games WHERE int_usercodigo = ?;');
-    //     res.json(games);
-    // }
     public async listMyGames (req: Request, res: Response): Promise<any> {
         const { id } = req.params;
         const games = await pool.query('SELECT * FROM games WHERE int_usercodigo = ?', [id]);
         res.json(games);
-        // if (games.length > 0) {
-        //     return res.json(games);
-        // } else {
-        //     res.status(404).json({text: "Game doesn't exists"});
-        // }
     }
 
     public async create (req: Request, res: Response): Promise<void> {

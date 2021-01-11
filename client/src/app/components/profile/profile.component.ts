@@ -26,6 +26,7 @@ export class ProfileComponent implements OnInit {
     vch_usertelefono: '',
     vch_userusuario: '',
     vch_userclave: '',
+    boo_logsesion: false
   };
 
   constructor(private gamesService: GamesService, private communicationService: CommunicationService) { }

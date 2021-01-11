@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { CommunicationService } from '../../services/communication.service';
+import { UsersService } from '../../services/users.service';
 
 import { User } from 'src/app/models/User';
 
@@ -13,8 +15,6 @@ import Swal from 'sweetalert2';
 })
 export class NavigationComponent implements OnInit {
 
-  usr: boolean;
-
   user: User = {
     int_usercodigo: 0,
     vch_userpaterno: '',
@@ -25,22 +25,11 @@ export class NavigationComponent implements OnInit {
     vch_usertelefono: '',
     vch_userusuario: '',
     vch_userclave: '',
+    boo_logsesion: false
   };
 
-  userlogout: User = {
-    int_usercodigo: 0,
-    vch_userpaterno: '',
-    vch_usermaterno: '',
-    vch_usernombre: '',
-    vch_userciudad: '',
-    vch_userdireccion: '',
-    vch_usertelefono: '',
-    vch_userusuario: '',
-    vch_userclave: '',
-  };
-
-  constructor(private communicationService: CommunicationService) { 
-    this.usr = this.communicationService.usr;
+  constructor(private communicationService: CommunicationService, private usersService: UsersService, private router: Router) { 
+    this.user = this.communicationService.user;
   }
 
   ngOnInit(): void {
@@ -48,6 +37,16 @@ export class NavigationComponent implements OnInit {
   }
 
   logout() {
+    console.log(this.user);
+    this.communicationService.user.boo_logsesion=false;
+    this.usersService.updateUser(String(this.user.int_usercodigo), this.user).subscribe(
+      res => {
+        console.log(res);
+        this.router.navigate(['/welcome']);
+      },
+      err => console.error(err)
+    );
+
     const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -63,8 +62,7 @@ export class NavigationComponent implements OnInit {
       icon: 'success',
       title: 'Hasta luego, te esperamos! <i class="far fa-smile-wink"> </i>'
     })
-    this.usr = false;
-    this.communicationService.usr = false;
+    // logout
   }
 
 }

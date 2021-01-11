@@ -54,6 +54,7 @@ class UserController {
     validatePassword(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
+            yield database_1.default.query('UPDATE Usuario SET boo_logsesion = true WHERE vch_userclave = SHA(?)', [id]);
             const user = yield database_1.default.query('SELECT * FROM Usuario WHERE vch_userclave = SHA(?)', [id]);
             if (user.length > 0) {
                 return res.json(user[0]);
