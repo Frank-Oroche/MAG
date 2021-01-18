@@ -4,6 +4,7 @@ import { User } from 'src/app/models/User';
 
 import { GamesService } from '../../services/games.service';
 import { UsersService } from '../../services/users.service';
+import { PostsService } from '../../services/posts.service';
 import { CommunicationService } from '../../services/communication.service';
 
 import Swal from 'sweetalert2';
@@ -18,6 +19,7 @@ export class GameListComponent implements OnInit {
   @HostBinding('class') classes = 'row';
 
   games: any = [];
+  posts: any = [];
   usuarios: any = [];
 
   user: User = {
@@ -33,11 +35,12 @@ export class GameListComponent implements OnInit {
     boo_logsesion: false
   };
 
-  constructor(private gamesService: GamesService, private usersService: UsersService, private communicationService: CommunicationService) { }
+  constructor(private gamesService: GamesService, private postsService: PostsService, private usersService: UsersService, private communicationService: CommunicationService) { }
 
   ngOnInit(): void {
     this.user = this.communicationService.user;
     this.getGames();
+    this.getPosts();
     this.getUsers();
   }
 
@@ -54,6 +57,15 @@ export class GameListComponent implements OnInit {
     this.gamesService.getMyGames(this.user.int_usercodigo!).subscribe(
       res => {
         this.games = res;
+      },
+      err => console.error(err)
+    );
+  }
+
+  getPosts() {
+    this.postsService.getPosts().subscribe(
+      res => {
+        this.posts = res;
       },
       err => console.error(err)
     );
@@ -100,7 +112,6 @@ export class GameListComponent implements OnInit {
         )
       }
     })
-    
   }
 
 }

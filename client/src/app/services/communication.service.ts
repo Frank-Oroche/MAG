@@ -22,9 +22,7 @@ export class CommunicationService {
   constructor() { }
 
   public UserDefiner(usuario : User) {
-    console.log('Se esta definiendo un Usuario');
     this.user = usuario;
-    console.log(this.user);
   }
 
 }
