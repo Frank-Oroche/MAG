@@ -1,50 +1,165 @@
 <app-navigation></app-navigation>
 
-<div class="container mt-4">
-    <div class="card-header text-center">
-        <h1>My Amazing Games</h1>
-    </div>
-    <div>
-        <img src="https://i.blogs.es/dd2b40/series-2021/1366_2000.jpeg" class="card-img-top mb-4" alt="...">
-        <div class="font-weight-bold text-center mx-5 mb-5">
-            <p style="font-size: 18px;">MAG (My Amazing Games) es pensada como una red social en cual puedas agregar y compartir tus juegos favoritos, para que ninguno de tus amigos se pierda de tus videojuegos que más juegas. </p>
-        </div>
-    </div>
-    <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
-        <div class="col">
-            <div class="card">
-                <img src="https://www.ecestaticos.com/imagestatic/clipping/66b/8ab/66b8ab3ec10f1e0484d19d78939f7e8d/generacion-high-score-en-netflix-de-locos-de-los-videojuegos-a-millonarios.jpg?mtime=1598695176"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h4 class="card-title text-center text-white">Conoce a la Comunidad!</h4>
-                    <p class="card-text text-center">Divierte conociendo y compartiendo videojuegos y conociendo amigos.</p>
-                </div>
+<header>
+  <div class="textos">
+    <h1 class="titulo">My Amazing Games</h1>
+    <h3 class="subtitulo">Los videojuegos al alcance de tus manos!</h3>
+    <a class="boton nav-link" routerLink="/signin" routerLinkActive="active"><i class="fas fa-sign-in-alt mx-2"></i>
+      Ingresar</a>
+    <a class="boton nav-link" routerLink="/signup" routerLinkActive="active"><i class="fas fa-user-plus mx-2"></i>
+      Registrarse</a>
+  </div>
+  <div class="sesgoabajo"></div>
+</header>
+<div class="container my-4">
+  <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+    <div class="col">
+      <div class="card">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active" data-bs-interval="3000" data-bs-keyboard="true">
+              <img src="../../../assets/panel.jpg!d" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              </div>
             </div>
-        </div>
-        <div class="col ">
-            <br><br><br><br>
-            <div class="font-weight-normal card-text text-center ">
-                <p style="font-size: 18px;">Es una comunidad para todos aquellos aficionados a los videojuegos y las videoconsolas. Cada jugador puede crear un perfil y controla a su manera sus amigos, su catálogo de videojuegos, las máquinas con las que juega, etc. Además, esta nueva red social permite valorar cada juego, así como conocer las opiniones del resto de integrantes de la comunidad.</p>
+            <div class="carousel-item" data-bs-interval="3000" data-bs-keyboard="true">
+              <img src="../../../assets/panel1.jpg!d" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
             </div>
+            <div class="carousel-item" data-bs-interval="3000" data-bs-keyboard="true">
+              <img src="../../../assets/panel2.jpg!d" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </a>
         </div>
+        <div class="card-body">
+          <h4 class="card-title text-center text-white">Conoce a la Comunidad!</h4>
+          <p class="card-text text-center">Divierte conociendo y compartiendo videojuegos y conociendo amigos.</p>
+        </div>
+      </div>
     </div>
-    <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
-        <div class="col">
-            <br><br><br><br>
-            <div class="font-weight-normal card-text text-center">
-                <p style="font-size: 18px;">En realidad, aparte de ser una red social, se trata de una herramienta alimentada en parte por los propios usuarios, a la que acceder en caso de necesitar una opinión sobre videojuegos. Nos gusta expresar a nuestros usuarios la idea de "Tus opiniones son el factor más importante de la comunidad".</p>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img src="https://puregaming.es/wp-content/uploads/2018/05/videoju.jpg"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h4 class="card-title text-center text-white">Expresate!</h4>
-                    <p class="card-text text-center">Se tu mismo compartiendo y divulgando tus gustos.</p>
-                </div>
-            </div>
-        </div>
-        
+    <div class="col ">
+      <br><br><br><br>
+      <div class="font-weight-normal card-text text-center ">
+        <p style="font-size: 18px;">Es una comunidad para todos aquellos aficionados a los videojuegos y las
+          videoconsolas. Cada jugador puede crear un perfil y controla a su manera sus amigos, su catálogo de
+          videojuegos, las máquinas con las que juega, etc. Además, esta nueva red social permite valorar cada juego,
+          así como conocer las opiniones del resto de integrantes de la comunidad.</p>
+      </div>
     </div>
+  </div>
+  <section class="galeria">
+    <div class="sesgoarriba"></div>
+    <div class="imagenes none">
+      <img src="../../../assets/img/shooter.jpg" alt="">
+      <div class="encima">
+        <a class="dark-grey-text" href="#!">
+          <h2>Shooter</h2>
+        </a>
+        <div></div>
+      </div>
+    </div>
+    <div class="imagenes">
+      <img src="../../../assets/img/aventura.jpg" alt="">
+      <div class="encima">
+        <a class="dark-grey-text" href="#!">
+          <h2>Aventura</h2>
+        </a>
+        <div></div>
+      </div>
+    </div>
+    <div class="imagenes">
+      <img src="../../../assets/img/cooperativo.jpg" alt="">
+      <div class="encima">
+        <a class="dark-grey-text" href="#!">
+          <h2>Cooperativo</h2>
+        </a>
+        <div></div>
+      </div>
+    </div>
+    <div class="imagenes none">
+      <img src="../../../assets/img/musical.jpg" alt="">
+      <div class="encima">
+        <a class="dark-grey-text" href="#!">
+          <h2>Musical</h2>
+        </a>
+        <div></div>
+      </div>
+    </div>
+    <div class="sesgoabajo"></div>
+  </section>
+  <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+    <div class="col">
+      <br><br><br><br>
+      <div class="font-weight-normal card-text text-center">
+        <p style="font-size: 18px;">En realidad, aparte de ser una red social, se trata de una herramienta alimentada en
+          parte por los propios usuarios, a la que acceder en caso de necesitar una opinión sobre videojuegos. Nos gusta
+          expresar a nuestros usuarios la idea de "Tus opiniones son el factor más importante de la comunidad".</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active" data-bs-interval="3000" data-bs-keyboard="true">
+              <img src="../../../assets/panel.jpg!d" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="3000" data-bs-keyboard="true">
+              <img src="../../../assets/panel1.jpg!d" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="3000" data-bs-keyboard="true">
+              <img src="../../../assets/panel2.jpg!d" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title text-center text-white">Expresate!</h4>
+          <p class="card-text text-center">Se tu mismo compartiendo y divulgando tus gustos.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>

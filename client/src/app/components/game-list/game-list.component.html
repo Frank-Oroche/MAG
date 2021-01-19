@@ -55,7 +55,7 @@
                 <div class="text-white">
                   <div *ngFor="let usuario of usuarios">
                     <ng-container *ngIf="usuario.int_usercodigo==post.int_usercodigo">
-                      <h4>{{usuario.vch_usernombre}} {{usuario.vch_userpaterno}} {{usuario.vch_usermaterno}}</h4>
+                      <h5>{{usuario.vch_usernombre}} {{usuario.vch_userpaterno}} {{usuario.vch_usermaterno}}</h5>
                     </ng-container>
                   </div>
                 </div>
@@ -67,7 +67,7 @@
               </div>
             </div>
             <div class="container">
-              <div class="d-flex justify-content-between aling-items-center">
+              <div class="text-white d-flex justify-content-between aling-items-center">
                 <p>{{post.vch_postdescripcion}}</p>
               </div>
               <ng-container *ngIf="post.vch_postimagen!=null">

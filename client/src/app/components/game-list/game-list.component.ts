@@ -66,6 +66,7 @@ export class GameListComponent implements OnInit {
     this.postsService.getPosts().subscribe(
       res => {
         this.posts = res;
+        this.posts.reverse();
       },
       err => console.error(err)
     );
