@@ -12,28 +12,34 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
+            <a class="nav-link" (click)="CambiarIdiomaEs()">Español</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="CambiarIdiomaEn()">Ingles</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" *ngIf="user.boo_logsesion==false" routerLink="/welcome" routerLinkActive="active"><i
-                class="fas fa-door-open mx-2"></i> Bienvenido</a>
+                class="fas fa-door-open mx-2"></i> {{ "NAVIGATION.WELLCOME" | translate }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" *ngIf="user.boo_logsesion==true" routerLink="/games" routerLinkActive="active"><i
-                class="fas fa-home mx-2"></i> Inicio</a>
+                class="fas fa-home mx-2"></i> {{ "NAVIGATION.INICIO" | translate }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" *ngIf="user.boo_logsesion==false" routerLink="/signin" routerLinkActive="active"><i
-                class="fas fa-sign-in-alt mx-2"></i> Ingresar</a>
+                class="fas fa-sign-in-alt mx-2"></i> {{ "NAVIGATION.INGRESAR" | translate }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" *ngIf="user.boo_logsesion==true" routerLink="/profile" routerLinkActive="active"><i
-                class="far fa-user mx-2"></i> Perfil</a>
+                class="far fa-user mx-2"></i> {{ "NAVIGATION.PERFIL" | translate }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" *ngIf="user.boo_logsesion==false" routerLink="/signup" routerLinkActive="active"><i
-                class="fas fa-user-plus mx-2"></i> Registrarse</a>
+                class="fas fa-user-plus mx-2"></i> {{ "NAVIGATION.REGISTRARSE" | translate }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" (click)="logout()" *ngIf="user.boo_logsesion==true" routerLink="/welcome"
-              routerLinkActive="active"><i class="fas fa-sign-out-alt mx-2"></i> Salir</a>
+              routerLinkActive="active"><i class="fas fa-sign-out-alt mx-2"></i> {{ "NAVIGATION.SALIR" | translate }}</a>
           </li>
         </ul>
       </div>

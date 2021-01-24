@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 /* Servicios */
 import { GamesService } from './services/games.service';
@@ -22,6 +24,10 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { PostBarComponent } from './components/post-bar/post-bar.component';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -41,11 +47,19 @@ import { PostBarComponent } from './components/post-bar/post-bar.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ScrollingModule
+    ScrollingModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     GamesService,
-    UsersService,CommunicationService
+    UsersService,
+    CommunicationService
   ],
   bootstrap: [AppComponent]
 })

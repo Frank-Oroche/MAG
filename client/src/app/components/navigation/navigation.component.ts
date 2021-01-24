@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 import { CommunicationService } from '../../services/communication.service';
 import { UsersService } from '../../services/users.service';
@@ -28,12 +29,12 @@ export class NavigationComponent implements OnInit {
     boo_logsesion: false
   };
 
-  constructor(private communicationService: CommunicationService, private usersService: UsersService, private router: Router) { 
+  constructor(private communicationService: CommunicationService, private usersService: UsersService, private router: Router, public translate: TranslateService) {
     this.user = this.communicationService.user;
   }
 
   ngOnInit(): void {
-    
+
   }
 
   logout() {
@@ -63,6 +64,14 @@ export class NavigationComponent implements OnInit {
       title: 'Hasta luego, te esperamos! <i class="far fa-smile-wink"> </i>'
     })
     // logout
+  }
+
+  CambiarIdiomaEs() {
+    this.translate.use('es');
+  }
+
+  CambiarIdiomaEn() {
+    this.translate.use('en');
   }
 
 }
