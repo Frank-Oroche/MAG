@@ -37,5 +37,79 @@
     "AYUDA": "Help",
     "CONTACTO": "Contact",
     "GRUPO": "Group 4"
+  },
+  "SIGN_IN": {
+    "LOGIN": "Login",
+    "CORREO": "Mail",
+    "CONTRASENA": "Password",
+    "INGRESAR": "Enter",
+    "NO_TIENES_CUENTA": "You do not have an account?",
+    "REGISTRATE": "Sign up",
+    "PH_INSERTE_EMAIL": "Insert Email",
+    "PH_INSERTE_CONTRASENA": "Enter Password"
+  },
+  "GAME_FORM": {
+    "TITULO_JUEGO": "Game Title:",
+    "DESCRIPCION": "Description:",
+    "URL_IMAGEN": "Image URL:",
+    "GUARDAR": "Save",
+    "CANCELAR": "Cancel",
+    "PH_TITULO": "Title",
+    "PH_DESCRIPCION": "Description",
+    "PH_IMAGEN": "Image"
+  },
+  "GAME_LIST": {
+    "NO_JUEGOS": "No games",
+    "AGREGAR_JUEGO": "Add a new game to start:",
+    "NUEVO_JUEGO": "New game",
+    "PERFIL": "Profile",
+    "NUEVO_JUEGO2": "New game",
+    "AMIGOS": "Friends",
+    "EVENTOS": "Events",
+    "GUARDADO": "Saved",
+    "ME_GUSTA": "Like",
+    "COMENTAR": "Comment",
+    "COMPARTIR": "Share",
+    "AMIGOS_QUIZAS": "Friends you may know",
+    "PH_ESCRIBIR_COMENTARIO": "Write a comment..."
+  },
+  "POST_BAR": {
+    "PUBLICAR": "To post",
+    "INSERTAR": "Insert",
+    "AGREGAR_JUEGO": "Add Game",
+    "PH_EN_QUE_PIENSAS": "What video game are you thinking of?"
+  },
+  "PROFILE": {
+    "NO_HAY_JUEGOS": "No games",
+    "AGREGAR_NUEVO_JUEGO": "Add a new game to start",
+    "NUEVO_JUEGO": "New game",
+    "EDITAR_JUEGO": "Edit Game"
+  },
+  "SIGN_UP": {
+    "REGISTRATE": "Sign up",
+    "INGRESE_APE_PATER": "Enter Paternal Last Name:",
+    "INGRESE_APE_MATER": "Enter Maternal Last Name:",
+    "INGRESE_NOMBRE": "Enter Name:",
+    "INGRESE CIUDAD": "Enter City:",
+    "INGRESE_DIRECCION": "Enter Address:",
+    "INGRESE_TELEFONO": "Enter Phone:",
+    "INGRESE_CORREO": "Enter Email:",
+    "INGRESE_CONTRASENA": "Enter Password:",
+    "CONFIRME_CONTRASENA": "Confirm Password:",
+    "REGISTRAR": "Register",
+    "PH_INGRESE_APE_PATER": "Insert Paternal Last Name",
+    "PH_INGRESE_APE_MATER": "Insert Maternal Surname",
+    "PH_INGRESE_NOMBRE": "Insert Name",
+    "PH_INGRESE_CIUDAD": "Insert City",
+    "PH_INGRESE_DIRECCION": "Insert Address",
+    "PH_INGRESE_TELEFONO": "Insert Phone",
+    "PH_INGRESE_EMAIL": "Insert Email",
+    "PH_INGRESE_CONTRASENA": "Enter Password",
+    "PH_CONFIRME_CONTRASENA": "Confirm Password"
+  },
+  "NOT_FOUND": {
+    "MSJ_NF": "Page not found",
+    "VOLVER": "Go Back",
+    "HOME": "Go to Home Page"
   }
 }

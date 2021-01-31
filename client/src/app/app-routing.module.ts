@@ -3,11 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { GameFormComponent } from './components/game-form/game-form.component';
-import { SignInComponent } from  './components/sign-in/sign-in.component';
-import { SignUpComponent } from  './components/sign-up/sign-up.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { GameListComponent } from './components/game-list/game-list.component';
 import { ProfileComponent } from './components/profile/profile.component';
-
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -42,6 +42,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent
+  },
+  {
+    path: '404',
+    component: NotFoundComponent
   }
 ];
 

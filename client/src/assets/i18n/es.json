@@ -37,5 +37,79 @@
     "AYUDA": "Ayuda",
     "CONTACTO": "Contacto",
     "GRUPO": "Grupo 4"
+  },
+  "SIGN_IN": {
+    "LOGIN": "Iniciar sesión",
+    "CORREO": "Correo",
+    "CONTRASENA": "Contraseña",
+    "INGRESAR": "Ingresar",
+    "NO_TIENES_CUENTA": "No tienes cuenta?",
+    "REGISTRATE": "Registrate",
+    "PH_INSERTE_EMAIL": "Inserte Email",
+    "PH_INSERTE_CONTRASENA": "Inserte Contraseña"
+  },
+  "GAME_FORM": {
+    "TITULO_JUEGO": "Titulo del Juego:",
+    "DESCRIPCION": "Descripcion:",
+    "URL_IMAGEN": "URL de la imagen:",
+    "GUARDAR": "Guardar",
+    "CANCELAR": "Cancelar",
+    "PH_TITULO": "Titulo",
+    "PH_DESCRIPCION": "Descripcion",
+    "PH_IMAGEN": "Imagen"
+  },
+  "GAME_LIST": {
+    "NO_JUEGOS": "No hay juegos",
+    "AGREGAR_JUEGO": "Agrega un nuevo juego para comenzar:",
+    "NUEVO_JUEGO": "Nuevo Juego",
+    "PERFIL": "Perfil",
+    "NUEVO_JUEGO2": "Nuevo Juego",
+    "AMIGOS": "Amigos",
+    "EVENTOS": "Eventos",
+    "GUARDADO": "Guardado",
+    "ME_GUSTA": "Me gusta",
+    "COMENTAR": "Comentar",
+    "COMPARTIR": "Compartir",
+    "AMIGOS_QUIZAS": "Amigos que quizas conozcas",
+    "PH_ESCRIBIR_COMENTARIO": "Escribe un comentario..."
+  },
+  "POST_BAR": {
+    "PUBLICAR": "Publicar",
+    "INSERTAR": "Insertar",
+    "AGREGAR_JUEGO": "Agregar Juego",
+    "PH_EN_QUE_PIENSAS": "¿En que videojuego piensas?"
+  },
+  "PROFILE": {
+    "NO_HAY_JUEGOS": "No hay juegos",
+    "AGREGAR_NUEVO_JUEGO": "Agrega un nuevo juego para comenzar",
+    "NUEVO_JUEGO": "Nuevo Juego",
+    "EDITAR_JUEGO": "Editar Juego"
+  },
+  "SIGN_UP": {
+    "REGISTRATE": "Registrate",
+    "INGRESE_APE_PATER": "Ingrese Apellido Paterno:",
+    "INGRESE_APE_MATER": "Ingrese Apellido Materno:",
+    "INGRESE_NOMBRE": "Ingrese Nombre:",
+    "INGRESE_CIUDAD": "Ingrese Ciudad:",
+    "INGRESE_DIRECCION": "Ingrese Direccion:",
+    "INGRESE_TELEFONO": "Ingrese Telefono:",
+    "INGRESE_CORREO": "Ingrese Correo:",
+    "INGRESE_CONTRASENA": "Ingrese Contraseña:",
+    "CONFIRME_CONTRASENA": "Confirme Contraseña:",
+    "REGISTRAR": "Registrar",
+    "PH_INGRESE_APE_PATER": "Inserte Apellido Paterno",
+    "PH_INGRESE_APE_MATER": "Inserte Apellido Materno",
+    "PH_INGRESE_NOMBRE": "Inserte Nombre",
+    "PH_INGRESE_CIUDAD": "Inserte Ciudad",
+    "PH_INGRESE_DIRECCION": "Inserte Direccion",
+    "PH_INGRESE_TELEFONO": "Inserte Telefono",
+    "PH_INGRESE_EMAIL": "Inserte Email",
+    "PH_INGRESE_CONTRASENA": "Inserte Contraseña",
+    "PH_CONFIRME_CONTRASENA": "Confirme Contraseña"
+  },
+  "NOT_FOUND": {
+    "MSJ_NF": "Página no encontrada",
+    "VOLVER": "Volver",
+    "HOME": "Ir a la página de inicio"
   }
 }

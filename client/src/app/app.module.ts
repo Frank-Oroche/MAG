@@ -24,6 +24,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { PostBarComponent } from './components/post-bar/post-bar.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -40,7 +41,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SignUpComponent,
     WelcomeComponent,
     ProfileComponent,
-    PostBarComponent
+    PostBarComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

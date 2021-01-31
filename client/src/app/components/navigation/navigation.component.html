@@ -9,19 +9,10 @@
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              {{ "NAVIGATION.IDIOMA" | translate }}
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-              <li><a class="dropdown-item" (click)="CambiarIdiomaEs()">Español</a></li>
-              <li><a class="dropdown-item" (click)="CambiarIdiomaEn()">Ingles</a></li>
-            </ul>
-          </li>
-        </ul>
+      <div>
+        {{ "NAVIGATION.IDIOMA" | translate }}:
+        <a class="dark-grey-text" (click)="CambiarIdiomaEs()"> Español</a>
+        <a class="dark-grey-text" (click)="CambiarIdiomaEn()"> Ingles</a>
       </div>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">

@@ -56,16 +56,16 @@
                 <h6 class="text-uppercase font-weight-bold text-white">Generos</h6>
                 <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 150px; background: #ffffff;">
                 <p>
-                    <a class="dark-grey-text" href="#!">{{ "FOOTER.SHOOTER" | translate }}</a>
+                    <a class="dark-grey-text" routerLink="/404" routerLinkActive="active">{{ "FOOTER.SHOOTER" | translate }}</a>
                 </p>
                 <p>
-                    <a class="dark-grey-text" href="#!">{{ "FOOTER.AVENTURA" | translate }}</a>
+                    <a class="dark-grey-text" routerLink="/404" routerLinkActive="active">{{ "FOOTER.AVENTURA" | translate }}</a>
                 </p>
                 <p>
-                    <a class="dark-grey-text" href="#!">{{ "FOOTER.COOPERATIVO" | translate }}</a>
+                    <a class="dark-grey-text" routerLink="/404" routerLinkActive="active">{{ "FOOTER.COOPERATIVO" | translate }}</a>
                 </p>
                 <p>
-                    <a class="dark-grey-text" href="#!">{{ "FOOTER.MUSICAL" | translate }}</a>
+                    <a class="dark-grey-text" routerLink="/404" routerLinkActive="active">{{ "FOOTER.MUSICAL" | translate }}</a>
                 </p>
             </div>
             <!-- Grid column -->
@@ -106,7 +106,10 @@
         </div>
     </div>
     <!-- Copyright -->
-    <div class="footer-copyright text-center text-black-50 py-3">© 2020 Copyright:
+    <div class="footer-copyright text-center text-white-50 py-3">© 2020 Copyright:
         <a class="dark-grey-text" href="/"> {{ "FOOTER.GRUPO" | translate }}</a>
+        {{ "NAVIGATION.IDIOMA" | translate }}:
+        <a class="dark-grey-text" (click)="CambiarIdiomaEs()"> Español</a>
+        <a class="dark-grey-text" (click)="CambiarIdiomaEn()"> Ingles</a>
     </div>
 </footer>
