@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS ng_games_test_1;
-CREATE DATABASE ng_games_test_1;
-USE ng_games_test_1;
+DROP DATABASE IF EXISTS ng_games;
+CREATE DATABASE ng_games;
+USE ng_games;
 SET NAMES 'utf8';
 
 CREATE TABLE usuario (
@@ -13,6 +13,7 @@ CREATE TABLE usuario (
 	vch_usertelefono     VARCHAR(20) NULL,
     vch_userusuario      VARCHAR(50) NOT NULL,
 	vch_userclave        VARCHAR(50),
+    vch_userimagen       VARCHAR(200),
     boo_logsesion BOOLEAN,
 	CONSTRAINT PK_Usuario PRIMARY KEY (int_usercodigo),
     CONSTRAINT U_Usuario_vch_userusuario UNIQUE (vch_userusuario),
@@ -70,7 +71,7 @@ CREATE TABLE post (
 		ON UPDATE RESTRICT
 ) ENGINE = INNODB ;
 
-USE ng_games_test_1;
+USE ng_games;
 
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `make_friends`(p_usercodigo INT(8), p_usercodigo1 INT(8))
@@ -109,10 +110,10 @@ BEGIN
 END$$
 DELIMITER ;
 
-INSERT INTO usuario (vch_userpaterno,vch_usermaterno,vch_usernombre,vch_userciudad,vch_userdireccion,vch_usertelefono,vch_userusuario,vch_userclave) VALUES
-('Oroche','Quispe','Frank Anthony','Lima','Jr. Guillermo Zuñiga 971 - SMP','961809487','admin@mag.com',SHA('admin')),
-('Oroche','Quispe','Joshua Aaron','Lima','Jr. Guillermo Zuñiga 971 - SMP','961809487','aaron@mag.com',SHA('aaron')),
-('Oroche','Quispe','Kerim Yanet','Lima','Jr. Guillermo Zuñiga 971 - SMP','961809487','kerim@mag.com',SHA('kerim'));
+INSERT INTO usuario (vch_userpaterno,vch_usermaterno,vch_usernombre,vch_userciudad,vch_userdireccion,vch_usertelefono,vch_userusuario,vch_userclave,vch_userimagen) VALUES
+('Oroche','Quispe','Frank Anthony','Lima','Jr. Guillermo Zuñiga 971 - SMP','961809487','admin@mag.com',SHA('admin'),'https://www.movilzona.es/app/uploads/2019/05/Foto-de-Perfil-en-WhatsApp.jpg'),
+('Oroche','Quispe','Joshua Aaron','Lima','Jr. Guillermo Zuñiga 971 - SMP','961809487','aaron@mag.com',SHA('aaron'),'https://blog.aulaformativa.com/wp-content/uploads/2016/08/consideraciones-mejorar-primera-experiencia-de-usuario-aplicaciones-web-perfil-usuario.jpg'),
+('Oroche','Quispe','Kerim Yanet','Lima','Jr. Guillermo Zuñiga 971 - SMP','961809487','kerim@mag.com',SHA('kerim'),'https://blog.aulaformativa.com/wp-content/uploads/2016/08/consideraciones-mejorar-primera-experiencia-de-usuario-aplicaciones-web-perfil-usuario.jpg');
 
 call save_game(1,'God of War','God of War es una serie de videojuegos','https://image.api.playstation.com/vulcan/img/rnd/202010/2217/k1laGX3Ita2N6Jlb7BbkHYAr.png');
 call save_game(1,'Left 4 Dead 2','Videojuego de disparos en primera persona cooperativo de tipo Horror de supervivencia','https://e.rpp-noticias.io/normal/2020/08/27/002900_988725.png');
@@ -124,6 +125,7 @@ select * from Usuario;
 select * from games;
 select * from friends;
 select * from post;
+select * from post where int_usercodigo=2;
 
 SELECT f.int_usercodigo1 FROM Usuario as u INNER JOIN friends as f
 ON u.int_usercodigo = f.int_usercodigo where u.int_usercodigo=1;
