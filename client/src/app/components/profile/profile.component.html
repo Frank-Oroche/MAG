@@ -13,32 +13,32 @@
 </ng-container>
 <ng-container *ngIf="games.length>0">
   <div class="row mb-3">
-    <div class="col-4 pt-4">
+    <cdk-virtual-scroll-viewport itemSize="50" id="viewport-profile" class="viewport col-4 ml-4 pt-4">
       <div class="col-md-12 mt-4">
         <div class="card mb-4 p-4" style="border-radius: 20px;">
-          <div class="">
+          <div class="text-white">
+            <div class="card text-center mt-2">
+              <div class="card-header bg-dark text-white">
+                <h3>{{user.vch_usernombre}} {{user.vch_userpaterno}} {{user.vch_usermaterno}}</h3>
+              </div>
+              <img [src]="user.vch_userimagen" class="card-img-top">
+            </div>
+            <div>
+              <hr size="2px" width="100%" noshade="noshade" />
+            </div>
             <div class="form-group">
-              <p>
-                {{user.int_usercodigo}}
-              </p>
-              <p>
-                {{user.vch_userpaterno}}
-              </p>
-              <p>
-                {{user.vch_usermaterno}}
-              </p>
-              <p>
-                {{user.vch_usernombre}}
-              </p>
-              <p>
-                {{user.vch_userciudad}}
-              </p>
-              <p>
-                {{user.vch_userdireccion}}
-              </p>
-              <p>
-                {{user.vch_usertelefono}}
-              </p>
+              <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-city mr-1"></i> {{"PROFILE.CIUDAD" | translate}}</h5>
+                <p class="card-text ml-4">{{user.vch_userciudad}}</p>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><i class="far fa-map mr-1"></i> {{"PROFILE.DIRECCION" | translate}}</h5>
+                <p class="card-text ml-4">{{user.vch_userdireccion}}</p>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-mobile-alt mr-1"></i> {{"PROFILE.TELEFONO" | translate}}</h5>
+                <p class="card-text ml-4">{{user.vch_usertelefono}}</p>
+              </div>
             </div>
             <div>
               <hr size="2px" width="100%" noshade="noshade" />
@@ -46,30 +46,64 @@
           </div>
         </div>
       </div>
-    </div>
+    </cdk-virtual-scroll-viewport>
     <cdk-virtual-scroll-viewport itemSize="50" id="viewport-posts" class="viewport col-7">
       <div class=" ">
         <app-post-bar></app-post-bar>
-        <div class="col-md-12" *ngFor="let game of games">
-          <div class="card mb-4 p-4" style="border-radius: 20px;">
-            <div class="row mb-3">
-              <div class="col-4">
-                <div class="card text-center mt-2">
-                  <div class="card-header bg-dark text-white d-flex justify-content-between aling-items-center">
-                    <h3>{{game.title}}</h3>
-                    <button class="btn btn-danger" (click)="deleteGame(game.id)">
-                      <i class="far fa-trash-alt"></i>
-                    </button>
-                  </div>
-                  <img [src]="game.image" class="card-img-top">
+        <div class="col-md-12" *ngFor="let post of posts">
+          <div class="card mb-4 px-4 pt-4" style="border-radius: 20px;">
+            <div class="row ">
+              <div class="col-8">
+                <div class="text-white">
+                  <h5>{{user.vch_usernombre}} {{user.vch_userpaterno}} {{user.vch_usermaterno}}</h5>
                 </div>
               </div>
               <div class="col-4">
-                <div class="card-body">
-                  <p>{{game.description}}</p>
-                  <p>{{game.created_at}}</p>
-                  <a [routerLink]="['/games/edit', game.id]" class="btn btn-info btn-block">
-                    {{"PROFILE.EDITAR_JUEGO" | translate}}</a>
+                <div class="text-right">
+                  <small> - {{post.post_created_at}}</small>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="text-white d-flex justify-content-between aling-items-center">
+                <p>{{post.vch_postdescripcion}}</p>
+              </div>
+              <ng-container *ngIf="post.vch_postimagen!=null">
+                <div class="card text-center mt-2">
+                  <div class="card-header bg-dark text-white">
+                    <div *ngFor="let game of games">
+                      <ng-container *ngIf="game.id==post.id">
+                        <h3>{{game.title}}</h3>
+                      </ng-container>
+                    </div>
+                  </div>
+                  <img [src]="post.vch_postimagen" class="card-img-top">
+                </div>
+              </ng-container>
+              <div class="mt-2">
+                <div class="row ">
+                  <div class="col-4">
+                    <button class="btn btn-secondary btn-block" style="border-radius: 20px;">
+                      <i class="far fa-thumbs-up mr-2"></i> {{"GAME_LIST.ME_GUSTA" | translate}}
+                    </button>
+                  </div>
+                  <div class="col-4">
+                    <button type="button" class="btn btn-secondary btn-block" style="border-radius: 20px;">
+                      <i class="far fa-comment-alt mr-2"></i> {{"GAME_LIST.COMENTAR" | translate}}
+                    </button>
+                  </div>
+                  <div class="col-4">
+                    <button type="button" class="btn btn-secondary btn-block" style="border-radius: 20px;">
+                      <i class="far fa-share-square mr-2"></i> {{"GAME_LIST.COMPARTIR" | translate}}
+                    </button>
+                  </div>
+                </div>
+                <div>
+                  <hr size="2px" width="100%" noshade="noshade" style="margin: 8px; padding: 0px;" />
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" style="background: #7e7e7e; border-radius: 25px;"
+                    placeholder="{{'GAME_LIST.PH_ESCRIBIR_COMENTARIO' | translate}}" autofocus>
                 </div>
               </div>
             </div>

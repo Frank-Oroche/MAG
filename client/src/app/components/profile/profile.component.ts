@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/User';
 
 import { GamesService } from '../../services/games.service';
+import { PostsService } from '../../services/posts.service';
 import { CommunicationService } from '../../services/communication.service';
 
 import Swal from 'sweetalert2';
@@ -15,6 +16,7 @@ import Swal from 'sweetalert2';
 export class ProfileComponent implements OnInit {
 
   games: any = [];
+  posts: any = [];
 
   user: User = {
     int_usercodigo: 0,
@@ -26,20 +28,32 @@ export class ProfileComponent implements OnInit {
     vch_usertelefono: '',
     vch_userusuario: '',
     vch_userclave: '',
-    boo_logsesion: false
+    boo_logsesion: false,
+    vch_userimagen: ''
   };
 
-  constructor(private gamesService: GamesService, private communicationService: CommunicationService) { }
+  constructor(private gamesService: GamesService, private communicationService: CommunicationService, private postsService: PostsService) { }
 
   ngOnInit(): void {
     this.user = this.communicationService.user;
     this.getGames();
+    this.getPosts();
   }
 
   getGames() {
     this.gamesService.getMyGames(this.user.int_usercodigo!).subscribe(
       res => {
         this.games = res;
+      },
+      err => console.error(err)
+    );
+  }
+
+  getPosts() {
+    this.postsService.getMyPosts(this.user.int_usercodigo!).subscribe(
+      res => {
+        this.posts = res;
+        this.posts.reverse();
       },
       err => console.error(err)
     );
@@ -86,7 +100,7 @@ export class ProfileComponent implements OnInit {
         )
       }
     })
-    
+
   }
 
 }

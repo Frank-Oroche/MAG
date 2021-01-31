@@ -9,4 +9,5 @@ export interface User {
   vch_userusuario?: string;
   vch_userclave?: string;
   boo_logsesion?: boolean;
+  vch_userimagen?: string;
 }

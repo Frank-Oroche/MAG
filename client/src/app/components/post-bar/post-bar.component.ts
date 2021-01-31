@@ -60,7 +60,7 @@ export class PostBarComponent implements OnInit {
             '',
             'success'
           )
-          this.router.navigate(['/games']);
+          this.router.navigate(['/profile']);
         },
         err => console.error(err)
       );

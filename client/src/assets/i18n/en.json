@@ -83,7 +83,10 @@
     "NO_HAY_JUEGOS": "No games",
     "AGREGAR_NUEVO_JUEGO": "Add a new game to start",
     "NUEVO_JUEGO": "New game",
-    "EDITAR_JUEGO": "Edit Game"
+    "EDITAR_JUEGO": "Edit Game",
+    "CIUDAD": "City",
+    "DIRECCION": "Address",
+    "TELEFONO": "Phone"
   },
   "SIGN_UP": {
     "REGISTRATE": "Sign up",
@@ -97,6 +100,7 @@
     "INGRESE_CONTRASENA": "Enter Password:",
     "CONFIRME_CONTRASENA": "Confirm Password:",
     "REGISTRAR": "Register",
+    "FOTO": "Profile picture",
     "PH_INGRESE_APE_PATER": "Insert Paternal Last Name",
     "PH_INGRESE_APE_MATER": "Insert Maternal Surname",
     "PH_INGRESE_NOMBRE": "Insert Name",
@@ -105,7 +109,8 @@
     "PH_INGRESE_TELEFONO": "Insert Phone",
     "PH_INGRESE_EMAIL": "Insert Email",
     "PH_INGRESE_CONTRASENA": "Enter Password",
-    "PH_CONFIRME_CONTRASENA": "Confirm Password"
+    "PH_CONFIRME_CONTRASENA": "Confirm Password",
+    "PH_IMAGEN": "Insert Profile Picture"
   },
   "NOT_FOUND": {
     "MSJ_NF": "Page not found",

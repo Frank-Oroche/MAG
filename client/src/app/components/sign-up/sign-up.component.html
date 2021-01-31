@@ -1,63 +1,99 @@
 <app-navigation></app-navigation>
 
 <div class="row">
-  <div class="col-md-4 offset-md-4">
-    <div class="card mt-4">
-      <div class="card-header text-center">
-        <h3>{{"SIGN_UP.REGISTRATE" | translate}}</h3>
-      </div>
-      <div class="card-body">
-        <form action="/signup" method="POST">
-          <div class="form-group">
-            <label class="form-label">{{"SIGN_UP.INGRESE_APE_PATER" | translate}}</label>
-            <input type="text" name="APaterno" [(ngModel)]="user.vch_userpaterno"
-              placeholder="{{'SIGN_UP.PH_INGRESE_APE_PATER' | translate}}" class="form-control">
+  <header>
+    <div class="textos">
+      <div class="col-md-10 offset-md-1">
+        <div class="card mt-4">
+          <div class="card-header text-center">
+            <h3>{{"SIGN_UP.REGISTRATE" | translate}}</h3>
           </div>
-          <div class="form-group">
-            <label class="form-label">{{"SIGN_UP.INGRESE_APE_MATER" | translate}}</label>
-            <input type="text" name="AMaterno" [(ngModel)]="user.vch_usermaterno"
-              placeholder="{{'SIGN_UP.PH_INGRESE_APE_MATER' | translate}}" class="form-control">
+          <div class="card-body">
+            <form action="/signup" method="POST">
+              <div class="row mb-3">
+                <div class="col-6 pt-1">
+                  <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label">{{"SIGN_UP.INGRESE_APE_PATER" | translate}}</label>
+                    <div class="col-sm-7">
+                      <input type="text" name="APaterno" [(ngModel)]="user.vch_userpaterno"
+                        placeholder="{{'SIGN_UP.PH_INGRESE_APE_PATER' | translate}}" class="form-control">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label">{{"SIGN_UP.INGRESE_APE_MATER" | translate}}</label>
+                    <div class="col-sm-7">
+                      <input type="text" name="AMaterno" [(ngModel)]="user.vch_usermaterno"
+                        placeholder="{{'SIGN_UP.PH_INGRESE_APE_MATER' | translate}}" class="form-control">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label">{{"SIGN_UP.INGRESE_NOMBRE" | translate}}</label>
+                    <div class="col-sm-7">
+                      <input type="text" name="nombre" [(ngModel)]="user.vch_usernombre"
+                        placeholder="{{'SIGN_UP.PH_INGRESE_NOMBRE' | translate}}" class="form-control">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label">{{"SIGN_UP.INGRESE_CIUDAD" | translate}}</label>
+                    <div class="col-sm-7">
+                      <input type="text" name="ciudad" [(ngModel)]="user.vch_userciudad"
+                        placeholder="{{'SIGN_UP.PH_INGRESE_CIUDAD' | translate}}" class="form-control">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label">{{"SIGN_UP.INGRESE_DIRECCION" | translate}}</label>
+                    <div class="col-sm-7">
+                      <input type="text" name="direccion" [(ngModel)]="user.vch_userdireccion"
+                        placeholder="{{'SIGN_UP.PH_INGRESE_DIRECCION' | translate}}" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 pt-1">
+                  <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label">{{"SIGN_UP.INGRESE_TELEFONO" | translate}}</label>
+                    <div class="col-sm-7">
+                      <input type="text" name="telefono" [(ngModel)]="user.vch_usertelefono"
+                        placeholder="{{'SIGN_UP.PH_INGRESE_TELEFONO' | translate}}" class="form-control">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label">{{"SIGN_UP.INGRESE_CORREO" | translate}}</label>
+                    <div class="col-sm-7">
+                      <input type="email" name="username" [(ngModel)]="user.vch_userusuario"
+                        placeholder="{{'SIGN_UP.PH_INGRESE_EMAIL' | translate}}" class="form-control">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label">{{"SIGN_UP.INGRESE_CONTRASENA" | translate}}</label>
+                    <div class="col-sm-7">
+                      <input type="password" name="password"
+                        placeholder="{{'SIGN_UP.PH_INGRESE_CONTRASENA' | translate}}" class="form-control">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label">{{"SIGN_UP.CONFIRME_CONTRASENA" | translate}}</label>
+                    <div class="col-sm-7">
+                      <input type="password" name="confirmPassword" [(ngModel)]="user.vch_userclave"
+                        placeholder="{{'SIGN_UP.PH_CONFIRME_CONTRASENA' | translate}}" class="form-control">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-4 col-form-label">{{"SIGN_UP.FOTO" | translate}}</label>
+                    <div class="col-sm-7">
+                      <input type="url" name="image" [(ngModel)]="user.vch_userimagen"
+                        placeholder="{{'SIGN_UP.PH_IMAGEN' | translate}}" class="form-control" id="imagen">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block mt-4" (click)="registrer()">
+                {{"SIGN_UP.REGISTRAR" | translate}}
+              </button>
+            </form>
           </div>
-          <div class="form-group">
-            <label class="form-label">{{"SIGN_UP.INGRESE_NOMBRE" | translate}}</label>
-            <input type="text" name="nombre" [(ngModel)]="user.vch_usernombre"
-              placeholder="{{'SIGN_UP.PH_INGRESE_NOMBRE' | translate}}" class="form-control">
-          </div>
-          <div class="form-group">
-            <label class="form-label">{{"SIGN_UP.INGRESE_CIUDAD" | translate}}</label>
-            <input type="text" name="ciudad" [(ngModel)]="user.vch_userciudad"
-              placeholder="{{'SIGN_UP.PH_INGRESE_CIUDAD' | translate}}" class="form-control">
-          </div>
-          <div class="form-group">
-            <label class="form-label">{{"SIGN_UP.INGRESE_DIRECCION" | translate}}</label>
-            <input type="text" name="direccion" [(ngModel)]="user.vch_userdireccion"
-              placeholder="{{'SIGN_UP.PH_INGRESE_DIRECCION' | translate}}" class="form-control">
-          </div>
-          <div class="form-group">
-            <label class="form-label">{{"SIGN_UP.INGRESE_TELEFONO" | translate}}</label>
-            <input type="text" name="telefono" [(ngModel)]="user.vch_usertelefono"
-              placeholder="{{'SIGN_UP.PH_INGRESE_TELEFONO' | translate}}" class="form-control">
-          </div>
-          <div class="form-group">
-            <label class="form-label">{{"SIGN_UP.INGRESE_CORREO" | translate}}</label>
-            <input type="email" name="username" [(ngModel)]="user.vch_userusuario"
-              placeholder="{{'SIGN_UP.PH_INGRESE_EMAIL' | translate}}" class="form-control">
-          </div>
-          <div class="form-group">
-            <label class="form-label">{{"SIGN_UP.INGRESE_CONTRASENA" | translate}}</label>
-            <input type="password" name="password" placeholder="{{'SIGN_UP.PH_INGRESE_CONTRASENA' | translate}}"
-              class="form-control">
-          </div>
-          <div class="form-group">
-            <label class="form-label">{{"SIGN_UP.CONFIRME_CONTRASENA" | translate}}</label>
-            <input type="password" name="confirmPassword" [(ngModel)]="user.vch_userclave"
-              placeholder="{{'SIGN_UP.PH_CONFIRME_CONTRASENA' | translate}}" class="form-control">
-          </div>
-          <button type="submit" class="btn btn-primary btn-block mt-4" (click)="registrer()">
-            {{"SIGN_UP.REGISTRAR" | translate}}
-          </button>
-        </form>
+        </div>
       </div>
     </div>
-  </div>
+    <div class="sesgoabajo"></div>
+  </header>
 </div>

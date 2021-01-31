@@ -25,7 +25,8 @@ export class SignUpComponent implements OnInit {
     vch_usertelefono: '',
     vch_userusuario: '',
     vch_userclave: '',
-    boo_logsesion: false
+    boo_logsesion: false,
+    vch_userimagen: ''
   };
 
   constructor(private userService: UsersService, private router: Router, private activatedRoute: ActivatedRoute, private communicationService: CommunicationService) { }
@@ -68,22 +69,6 @@ export class SignUpComponent implements OnInit {
     }
   }
 
-  // registrer() {
-  //   if (this.validarCampos()) {
-  //     this.userService.saveUser(this.user).subscribe(
-  //       res => {
-  //         this.user = res;
-  //         this.aviso(`Bienvenido ${this.user.vch_usernombre}!`, 'success');
-  //         this.communicationService.UserDefiner(this.user);
-  //         this.router.navigate(['/games']);
-  //       },
-  //       err => {
-  //         this.aviso(`Usuario Incorrecto!`, 'error');
-  //         console.error(err);
-  //       }
-  //     );
-  //   }
-  // }
   registrer() {
     if (this.validarCampos()) {
       this.userService.saveUser(this.user).subscribe(

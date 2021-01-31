@@ -16,7 +16,8 @@ export class CommunicationService {
     vch_usertelefono: '',
     vch_userusuario: '',
     vch_userclave: '',
-    boo_logsesion: false
+    boo_logsesion: false,
+    vch_userimagen: ''
   };
 
   constructor() { }
